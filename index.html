@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D tester </title>
+    <title>Sinking Atolls </title>
     <link rel="stylesheet" href="css/main.css">
+     <!--GreenSock Animation plugin:-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+     <script type="module" src="scripts/islandScene.js" rel="script"></script>
+     <script src="scripts/canvas.js" rel="script"></script>
 </head>
-<body>
-    <!--GreenSock Animation plugin:-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+<body onload="start()"> 
+    <center>
+    <p> sample text top</p>
+    <p class ="float-left"> sample text left</p>
+    <p class ="float-right"> sample text right</p>
     <!--Create a scene-->
-    <script type="module" src="scripts/visual-script.js"></script>
+    <div id="canvasContainer">
+        <canvas id="islandCanvas">
+            Your browser doesn't support canvas
+        </canvas>
+    </div>
+    
+    <p> sample text bottom</p>
+</center>
+
+    
 </body>
 </html>
