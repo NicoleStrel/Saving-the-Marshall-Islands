@@ -9,7 +9,7 @@ canvas {
     height: 100%; 
     border: solid 5px white;
     /*display: block;*/
-    display: inline;
+    
 }
 
 #canvasContainer{

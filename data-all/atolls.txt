@@ -1,5 +1,4 @@
-name id long lat population popdate elevation islets
-Majuro 1838 171.365753 7.120520 27,797 2011 3 64
-Enewetak 665 162.1890 11.4654 664 2011 5 40
-Kwajalein 513 167.7333 8.7167 11,408 2011 1.8 97
-
+name id long lat population popdate elevation(m) islets MSL_to_RLR(mm)
+Majuro 1838 171.365753 7.120520 27,797 2011 3 64 6995
+Enewetak 665 162.1890 11.4654 664 2011 5 40 6978 
+Kwajalein 513 167.7333 8.7167 11,408 2011 1.8 97 7055
