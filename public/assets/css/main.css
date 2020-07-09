@@ -86,15 +86,15 @@
 		padding-top: 6em;
 	}
 
-		body.landing {
-			padding-top: 0 !important;
-		}
+	body.landing {
+		padding-top: 0 !important;
+	}
 
 /* Type */
 	body{
 		background-color: #fff;
 		color: #666;
-		font-family: "Raleway", Arial, Helvetica, sans-serif;
+		font-family: 'Roboto Mono', monospace;
 		font-size: 11pt;
 		font-weight: 400;
 		line-height: 2em;
@@ -121,16 +121,6 @@
 		text-decoration: none;
 	}
 
-	h2 {
-		font-size: 1.75em;
-		line-height: 1.5em;
-	}
-	h4 {
-		font-size: 1.1em;
-		line-height: 1.5em;
-	}
-
-
 
 /* Button */
 	.button {
@@ -147,7 +137,6 @@
 		padding: 0 2.2em;
 		text-align: center;
 		text-decoration: none;
-		text-transform: uppercase;
 		white-space: nowrap;
 	}
 
@@ -258,18 +247,6 @@
 
 /* Image */
 
-	.image {
-		border-radius: 4px;
-		border: 0;
-		display: inline-block;
-		position: relative;
-	}
-
-		.image img {
-			border-radius: 4px;
-			display: block;
-		}
-
 		.image.left, .image.right {
 			max-width: 40%;
 		}
@@ -335,7 +312,6 @@
 		color: #aaa;
 		position: relative;
 		margin: 0 0 1.5em 0;
-		text-transform: uppercase;
 	}
 
 	header h2 + p {
@@ -380,18 +356,9 @@
 		padding: 6em 0 4em 0;
 	}
 
-		.wrapper > .inner {
-			margin: 0 auto;
-			width: 60em;
-		}
-
-		.wrapper.style2 {
-			background-color: #f6f6f6;
-		}
-
 		.wrapper.style3 {
 			background-attachment: fixed;
-			background-image: url("images/overlay.png"), url("../../images/banner.jpg");
+			background-image: url("../../images/overlay.png"), url("../../images/banner.jpg");
 			background-position: center center;
 			background-size: cover;
 		}
@@ -405,11 +372,9 @@
 				}
 
 				@media screen and (max-width: 1280px) {
-
 					.wrapper.style3 header.major {
 						margin-bottom: 2em;
 					}
-
 				}
 
 		@media screen and (max-width: 980px) {
@@ -449,7 +414,6 @@
 		left: 0;
 		line-height: 4.4em;
 		position: fixed;
-		text-transform: uppercase;
 		top: 0;
 		width: 100%;
 		z-index: 10000;
@@ -473,6 +437,7 @@
 			line-height: inherit;
 			position: absolute;
 			right: 1.25em;
+			margin-top: 0.5em;
 			top: 0;
 			vertical-align: middle;
 		}
@@ -596,7 +561,7 @@
 	#banner {
 		padding: 16em 0 13em 0;
 		background-attachment: fixed;
-		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
+		background-image: url("../../images/overlay.png"), url("../../images/banner.jpg");
 		background-position: center top;
 		background-size: cover;
 		line-height: 1.75;
@@ -619,7 +584,6 @@
 			color: #aaa;
 			font-size: 1.5em;
 			margin-bottom: 1.75em;
-			text-transform: uppercase;
 		}
 
 		@media screen and (max-width: 1280px) {
