@@ -41,6 +41,11 @@ app.get("/atolls", function (req, res) {
     res.sendFile(path.join(__dirname, "/atolls.html"));
 });
 
+app.get("/**/*.*", function (req, res) {
+    console.log("AAA: " + req.path);
+    res.sendFile(path.join(__dirname, req.path));
+});
+
 ///////////////////////////////////////////////////
 
 app.listen(HTTP_PORT, onHttpStart);
