@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>Sinking Atolls</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="shortcut icon" href="/images/logo.jpg" type="image/jpg" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+	<script type="module" src="scripts/islandScene.js" rel="script"></script>
+	<script src="scripts/canvas.js" rel="script"></script>
+</head>
+
+<body onload="start()">
+
+	<!-- Header -->
+	<header id="header" class="alt">
+		<h1><strong><a href="/">
+					<image src="/images/logo.jpg" width="15" height="15" /> Sinking Atolls</a></strong></h1>
+		<nav id="nav">
+			<ul>
+				<li><a href="/">About</a></li>
+				<li><a href="/atolls">Atolls/Islands</a></li>
+				<li><a href="https://www.google.com/">Donate</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Main -->
+	<section id="main" class="wrapper">
+		<div class="container">
+
+			<header class="major special">
+				<h2>Atolls / Islands</h2>
+				<p>subheadings</p>
+			</header>
+			<center>
+				<p> sample text top</p>
+				<p class="float-left"> sample text left</p>
+				<p class="float-right"> sample text right</p>
+				<!--Create a scene-->
+				<div id="canvasContainer">
+					<canvas id="islandCanvas">
+						Your browser doesn't support canvas
+					</canvas>
+				</div>
+				<p> sample text bottom</p>
+			</center>
+
+		</div>
+	</section>
+
+
+
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="container">
+			<ul class="copyright">
+				<li>&copy; copyright</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+
+
+</html>

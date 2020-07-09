@@ -1,0 +1,16 @@
+{
+  "name": "amazonaws_buildathon",
+  "version": "1.0.0",
+  "description": "Amazon Raise-up Buildathon",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "three": "^0.117.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hyunji Cho",
+  "license": "ISC"
+}
