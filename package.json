@@ -1,29 +1,16 @@
 {
-<<<<<<< HEAD
-  "name": "amazonaws_buildathon",
-  "version": "1.0.0",
-  "description": "Amazon Raise-up Buildathon",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.17.1",
-=======
   "name": "saving-the-marshall-islands",
   "version": "1.0.0",
   "description": "The marshall islands in the pacific ocean have undergone extensive nuclear testing (105 tests!)  in the 1940s as well as rising sea levels due to Global Warming (nuclear blasts contributed to this). They are the first to fall underwater in the near future. Unfortunately irreversible, we can spread awareness to this issue and pledge donations to organizations such as https://www.atollconservation.org/ (conserves the islands) and many more. Also, by showing the impact that global warming has on these islands, we can encourage people to enforce preventative measures.",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "jquery": "^3.5.1",
->>>>>>> 553fcbf77f8b1d0f15967ca871fd9568edbb481c
     "three": "^0.117.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-<<<<<<< HEAD
-  "author": "Hyunji Cho",
-  "license": "ISC"
-=======
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NicoleStrel/Saving-the-Marshall-Islands.git"
@@ -34,5 +21,4 @@
     "url": "https://github.com/NicoleStrel/Saving-the-Marshall-Islands/issues"
   },
   "homepage": "https://github.com/NicoleStrel/Saving-the-Marshall-Islands#readme"
->>>>>>> 553fcbf77f8b1d0f15967ca871fd9568edbb481c
 }
