@@ -1,5 +1,5 @@
 import {Atoll} from './Atoll.js';
-import {displayAtoll} from './changeAtoll.js';
+//import {displayAtoll} from './displayAtoll.js';
 
 //Note: use .toFixed(3) for rounded printing!
 
