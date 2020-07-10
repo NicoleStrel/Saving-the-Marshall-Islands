@@ -1,4 +1,4 @@
-name id long lat population popdate elevation(m) islets MSL_to_RLR(mm)
-Majuro 1838 171.365753 7.120520 27,797 2011 3 64 6995
-Enewetak 665 162.1890 11.4654 664 2011 5 40 6978 
-Kwajalein 513 167.7333 8.7167 11,408 2011 1.8 97 7055
+name id long lat population popdate elevation(m) islets MSL_to_RLR(mm) short_desc
+Majuro;1838;171.365753;7.120520;27,797;2011;3;64;6995;The largest city and capital of the Marshall Islands, Majuro is the home to over 27,797 residents (2011) and has a coral atoll formation of 64 islands.
+Enewetak;665;162.1890;11.4654;664;2011;5;40;6978;Located in the northwestern end of the Ralik chain, Marshall Islands, this atoll has a circular form and consists of 40 islets.
+Kwajalein;513;167.7333;8.7167;11,408;2011;1.8;97;7055;Kwajalein is one of the bigger atolls in the Marshall Islands, spanning just over 6 square miles and 97 islets. 

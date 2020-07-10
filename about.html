@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="shortcut icon" href="/images/logo.png" type="image/png" />
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+	<!--Load jquery-->
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 
 <body class="landing">
@@ -19,7 +21,7 @@
 		<nav id="nav">
 			<ul>
 				<li><a href="/">About</a></li>
-				<li><a href="/atolls">Atolls/Islands</a></li>
+				<li><a href="/atolls">Atolls</a></li>
 				<li><a href="https://www.google.com/">Donate</a></li>
 			</ul>
 		</nav>
@@ -84,57 +86,62 @@
 	<section id="three" class="wrapper style1">
 		<div class="container">
 			<header class="major special">
-				<h2>Endangered Islands</h2>
-				<p>the most endangered islands</p>
+				<h2>Endangered Atolls</h2>
+				<p>Atolls in the Marshall islands that have tide gauge data.</p>
 			</header>
-			<div class="feature-grid">
-				<div class="feature">
-					<div class="image rounded"><img src="images/island1.jpg" alt="" /></div>
-					<div class="content">
-						<header>
-							<h4>Island1</h4>
-							<p>islands location</p>
-						</header>
-						<p>island desciption island desciption island desciption island desciption island
-							desciptionisland desciption island desciption island desciption </p>
-					</div>
-				</div>
-				<div class="feature">
-					<div class="image rounded"><img src="images/island2.jpg" alt="" /></div>
-					<div class="content">
-						<header>
-							<h4>Island2</h4>
-							<p>islands location</p>
-						</header>
-						<p>island desciption island desciption island desciption island desciption island
-							desciptionisland desciption island desciption island desciption </p>
-					</div>
-				</div>
-				<div class="feature">
-					<div class="image rounded"><img src="images/island3.jpg" alt="" /></div>
-					<div class="content">
-						<header>
-							<h4>Island3</h4>
-							<p>islands location</p>
-						</header>
-						<p>island desciption island desciption island desciption island desciption island
-							desciptionisland desciption island desciption island desciption </p>
-					</div>
-				</div>
-				<div class="feature">
-					<div class="image rounded"><img src="images/island4.jpg" alt="" /></div>
-					<div class="content">
-						<header>
-							<h4>Island4</h4>
-							<p>islands location</p>
-						</header>
-						<p>island desciption island desciption island desciption island desciption island
-							desciptionisland desciption island desciption island desciption </p>
-					</div>
-				</div>
-			</div>
+			<div class="feature-grid" id="feature-list"></div>
+			<script>
+				//read seperatly on this page to avoid heavy loading and unessasary calcs 
+				$.when($.get('/data-all/atolls.txt')).then(function(data) {
+					var lines=data.split("\n");
+					$.each(lines, function(i){
+						if (i!=0){
+							var content=lines[i].split(";");
+						
+							//------------add content-------------
+							//div
+							var div = document.createElement('div');
+							div.setAttribute('class', 'feature');
+							
+							//img
+							var divimg=document.createElement('div');
+							divimg.setAttribute('class', 'image rounded');
+							var img=document.createElement('img');
+							var imgsrc="images/"+content[0]+".jpg";
+							img.setAttribute('src', imgsrc);
+							divimg.appendChild(img);
+
+							//content
+							var cont=document.createElement('div');
+							cont.setAttribute('class', 'content');
+
+							//header
+							var header=document.createElement('header');
+							var name=document.createElement('h4');
+							name.innerHTML=content[0];
+							var loc=document.createElement('p');
+							loc.innerHTML=content[3]+"° N, "+content[2]+ "° E";
+							header.appendChild (name);
+							header.appendChild (loc);
+							
+							//desc
+							var desc=document.createElement('p');
+							desc.innerHTML=content[9];
+
+							cont.appendChild(header);
+							cont.appendChild(desc);
+
+							div.appendChild(divimg);
+							div.appendChild(cont);
+							document.getElementById('feature-list').appendChild(div);
+						};
+
+					});
+
+				});
+			</script>
 			<ul class="actions">
-				<li><a href="/atolls" class="button fit">Check more islads</a></li>
+				<li><a href="/atolls" class="button fit">Click for more info</a></li>
 			</ul>
 		</div>
 	</section>

@@ -15,7 +15,7 @@ var path = require("path");
 const HTTP_PORT = process.env.PORT || 8080;
 
 function onHttpStart() {
-    console.log("Express http server listening on " + HTTP_PORT);
+    console.log("Express http server listening on http://localhost:" + HTTP_PORT);
 }
 
 ///////////////////////////////////////////////////
