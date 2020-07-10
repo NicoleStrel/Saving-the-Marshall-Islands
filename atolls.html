@@ -9,15 +9,25 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
 	<link rel="shortcut icon" href="/images/logo.png" type="image/png" />
+	<!--GreenStock Animation-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
-	<script type="module" src="scripts/islandScene.js" rel="script"></script>
-	<script src="scripts/canvas.js" rel="script"></script>
+	<!--Load all scripts-->
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script type="module" src="scripts/reader.js" rel="script"></script>
+	<script type="module" src="scripts/reader.js" rel="script"></script> <!--last-->
+	<script type="module" src="scripts/changeAtoll.js" rel="script"></script> <!--second-->
+	<script type="module" src="scripts/islandScene.js" rel="script"></script> <!--first-->
+	<script src="scripts/canvas.js" rel="script"></script> <!--dont need anymore-->
+	
+	<!--Main script to start loadind data- PRIORITY-->
+	<script>
+		$( document ).ready(function() {
+	        read();
+			start(); //start canvas
+		});
+	</script>
 </head>
 
-<body onload="start()">
-
+<body>
 	<!-- Header -->
 	<header id="header" class="alt">
 		<h1><strong><a href="/">
@@ -25,7 +35,7 @@
 		<nav id="nav">
 			<ul>
 				<li><a href="/">About</a></li>
-				<li><a href="/atolls">Atolls/Islands</a></li>
+				<li><a href="/atolls">Atolls</a></li>
 				<li><a href="https://www.google.com/">Donate</a></li>
 			</ul>
 		</nav>
@@ -36,21 +46,31 @@
 		<div class="container">
 
 			<header class="major special">
-				<h2>Atolls / Islands</h2>
+				<h2>Atolls</h2>
 				<p>subheadings</p>
 			</header>
-			<center>
-				<p> sample text top</p>
-				<p class="float-left"> sample text left</p>
-				<p class="float-right"> sample text right</p>
-				<!--Create a scene-->
-				<div id="canvasContainer">
-					<canvas id="islandCanvas">
-						Your browser doesn't support canvas
-					</canvas>
-				</div>
-				<p> sample text bottom</p>
-			</center>
+			<div class="islandinfo" > <!--onload="display()"-->
+				<center>
+					<h1 id="name"></h1>
+					
+					<p id="year"></p>
+					<p id="sea-level"></p>
+					<p class="float-left" onChange="prevAtoll()"> prev island</p>
+					<p class="float-right" onChange="nextAtoll()"> next island</p>
+					
+					<!--Create a scene-->
+					<div id="canvasContainer">
+						<canvas id="islandCanvas">
+							Your browser doesn't support canvas
+						</canvas>
+					</div>
+					<p id="pop"></p>
+					<p id="loc"></p>
+					<p id="islets"></p>
+					<p id="elevation"></p>
+
+				</center>
+			</div>
 
 		</div>
 	</section>
