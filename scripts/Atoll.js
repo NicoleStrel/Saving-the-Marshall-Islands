@@ -9,11 +9,12 @@ export class Atoll {
         this.popdate=popdate; //year
         this.elevation=elevation;
         this.islets=islets;
-        //undeclared
         this.mean_sea_level_to_rlr=mean_sea_level_to_datum; //in mm 
+        //undeclared
         this.sea_level_gauge_values=[];//in mm 
         this.years=[]; //
         this.water_block_ratios=[]; //no unit
+        this.sea_level_to_msl_vals=[];
     }
 
     calculateSeaLeveltoMSL (tide_gauge_val){
