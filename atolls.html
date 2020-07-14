@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>Sinking Atolls</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="/images/logo.png" type="image/png" />
+	<!--GreenStock Animation-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+	<!--Load all scripts-->
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="module" src="scripts/displayAtoll.js" rel="script"></script>
+	<script type="module" src="scripts/reader.js" rel="script"></script> <!--last-->
+	<script src="scripts/changeAtoll.js" rel="script"></script> <!--second-->
+	<script type="module" src="scripts/islandScene.js" rel="script"></script> <!--first-->
+	<script src="scripts/canvas.js" rel="script"></script> <!--dont need anymore-->
+	
+	<!--Main script to start loadind data- PRIORITY-->
+	<script>
+		$( document ).ready(function() {
+			window.atollIndex=0;
+			window.yearIndex=0;
+	        read();
+			start(); //start canvas
+		});
+	</script>
+</head>
+
+<body >
+	<!-- Header -->
+	<header id="header" class="alt">
+		<h1><strong><a href="/">
+					<image src="/images/logo.png" width="100" height="100" /></a></strong></h1>
+		<nav id="nav">
+			<ul>
+				<li><a href="/">About</a></li>
+				<li><a href="/atolls">Atolls</a></li>
+				<li><a href="https://www.google.com/">Donate</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Main -->
+	<section id="main" class="wrapper">
+		<div class="container">
+
+			<header class="major special">
+				<h2>Atolls</h2>
+				<p>subheadings</p>
+			</header>
+			<div class="islandinfo" > <!--onload="display()"-->
+				<center>
+					<h1 id="name">  . . .  </h1>
+					
+					<p id="year">  . . .  </p>
+					<p id="sea-level">  . . .  </p>
+					<p class="float-left" onclick="prevAtoll()"> prev island</p> <!--Doesnt recognze the func-->
+					<p class="float-right" onclick="nextAtoll()"> next island</p>
+					
+					<!--Create a scene-->
+					<div id="canvasContainer">
+						<canvas id="islandCanvas">
+							Your browser doesn't support canvas
+						</canvas>
+					</div>
+					<p id="pop"></p>
+					<p id="loc"></p>
+					<p id="islets"></p>
+					<p id="elevation"></p>
+
+				</center>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="container">
+			<ul class="copyright">
+				<li>&copy; copyright</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+
+
+</html>
