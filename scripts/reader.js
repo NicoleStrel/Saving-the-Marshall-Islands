@@ -17,6 +17,7 @@ window.read =function (){
             console.log("Atoll reading is done ");
             console.log ("atolls length: ", atolls.length);
             console.log("atolls: ", atolls);
+            //after read, define vars:
             displayAtoll();
         });
 

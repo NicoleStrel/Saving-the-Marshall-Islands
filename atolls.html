@@ -12,20 +12,32 @@
 	<!--GreenStock Animation-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 	<!--Load all scripts-->
+	<!--define global vars -->
+	<script>
+		window.atollIndex=0;
+		window.yearIndex=0;
+		window.scaleby=0;
+		window.atollName="Majuro";
+		window.changed=false;
+		window.initialload=true;
+	</script>
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="module" src="scripts/displayAtoll.js" rel="script"></script>
-	<script type="module" src="scripts/reader.js" rel="script"></script> <!--last-->
-	<script src="scripts/changeAtoll.js" rel="script"></script> <!--second-->
-	<script type="module" src="scripts/islandScene.js" rel="script"></script> <!--first-->
-	<script src="scripts/canvas.js" rel="script"></script> <!--dont need anymore-->
+	<script type="module" src="scripts/reader.js" rel="script"></script> 
+	<script src="scripts/changeAtoll.js" rel="script"></script> 
+	
+	<script type="module" src="scripts/Atoll.js" rel="script"></script> 
+	<script type="module" src="scripts/islandScene.js" rel="script"></script> 
+	<script src="scripts/canvas.js" rel="script"></script>
+	<!--<script src="scripts/changeYear.js" rel="script"></script> -->
+	<!--when above is uncommented, island switch does not work? -->
 	
 	<!--Main script to start loadind data- PRIORITY-->
 	<script>
 		$( document ).ready(function() {
-			window.atollIndex=0;
-			window.yearIndex=0;
 	        read();
 			start(); //start canvas
+
 		});
 	</script>
 </head>
@@ -67,6 +79,14 @@
 							Your browser doesn't support canvas
 						</canvas>
 					</div>
+					<!--SCROLL BAR-->
+					<div id="draggable-element"></div>
+					<script>
+						dragElement(document.getElementById("draggable-element"));
+					</script>
+					<ul id="scrollbar">
+					</ul>
+					<!-------------->
 					<p id="pop"></p>
 					<p id="loc"></p>
 					<p id="islets"></p>

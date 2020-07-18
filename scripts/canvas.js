@@ -1,7 +1,7 @@
 //default canvas code-check for WEBGL
 var gl; // A global variable for the WebGL context
 
-function start() {
+window.start =function() {
     var canvas = document.getElementById("islandCanvas");
     // Initialize the GL context
     gl = initWebGL(canvas);
