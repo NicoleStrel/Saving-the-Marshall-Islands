@@ -55,30 +55,22 @@ var material2 = new THREE.MeshPhongMaterial({
 var mesh2= new THREE.Mesh(geometry, material2);
 mesh2.rotation.set(0, 45, 0);
 mesh2.scale.y=0;
-scene.add(mesh2);
-
-//-----------------get size----------------------
-
-var mroot = mesh2;
-var box = new THREE.Box3().setFromObject(mroot);
-var sizebox = box.getSize(new THREE.Vector3());
-console.log("getsize box", sizebox);
-
-//^maybe scale according to this
-
-//--------------------------Load GLTF-------------------------------
-var loader = new GLTFLoader();
-
-loader.load('blender-files/Majuro.glb', function(gltf){
-	var island=gltf.scene.children[1];
-	island.scale.set(0.5,0.5,0.5);
-    scene.add(gltf.scene);
-    var box = new THREE.Box3().setFromObject(gltf.scene );
-    console.log(  "getsize gltf", box.getSize() );
-});
-
 mesh2.scale.x=25; 
 mesh2.scale.z=25;
+scene.add(mesh2);
+
+
+//--------------------------initialize GLTF-------------------------------
+var loader = new GLTFLoader();
+loader.load(`blender-files/${atollName}.glb`, function(gltf){
+  var island=gltf.scene.children[1];
+  island.scale.set(0.5,0.5,0.5);
+  window.prevgltf=gltf; 
+  //window.parentgltf=island.parent;
+  console.log ("gltf" , prevgltf);
+  //parentgltf.add(island);
+  scene.add(gltf.scene);
+});
 
 //--------------------------lights-------------------------------
 
@@ -102,20 +94,54 @@ var lightambient = new THREE.AmbientLight( 0x404040 );
 scene.add(lightambient);
 
 
+
 //--------------------------render-------------------------------
-var render= function() {
+window.render= function() {
+    if (changed){
+
+      console.log("changing gltf to ",atollName, "... ");
+
+      loader.load(`blender-files/${atollName}.glb`, function(gltf){
+        var island=gltf.scene.children[1];
+        island.scale.set(0.5,0.5,0.5);
+        scene.add(gltf.scene);
+        prevgltf=gltf;
+      });
+      changed=false;
+      console.log("changed");
+    }
+    //.........animations
+    var tl =new TimelineMax().delay(1);
+    tl.to(mesh2.scale, 1, {y:scaleby});
+    scene.rotation.set(Math.PI*(1/180),0,0);    //rotate to see the animation
+    
+    //...........render
     resizeCanvasToDisplaySize();
     requestAnimationFrame(render);
     renderer.render(scene, camera);
+    //});
     
 }
 
-//--------------------------animations-------------------------------
-var scaleby=0.08; //WATER HEIGHT
-var tl =new TimelineMax().delay(1);
-tl.to(mesh2.scale, 1, {y:scaleby});
+window.renderInitial=function(){
+  //.........animations
+  var tl =new TimelineMax().delay(1);
+  console.log("scaleby: ", scaleby);
+  tl.to(mesh2.scale, 1, {y:scaleby});
+  scene.rotation.set(Math.PI*(1/180),0,0);    //rotate to see the animation
+  resizeCanvasToDisplaySize();
+  requestAnimationFrame(render);
+  renderer.render(scene, camera);
+}
 
-//rotate to see the animation
-scene.rotation.set(Math.PI*(1/180),0,0);
 
-render();
+
+window.deleteOld= function(){
+  console.log('deleting old scene..');
+  scene.remove(prevgltf.scene);
+  console.log("removed: ", prevgltf);
+}
+
+
+
+renderInitial();
