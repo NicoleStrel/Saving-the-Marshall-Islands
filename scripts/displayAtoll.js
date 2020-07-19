@@ -50,7 +50,7 @@ window.displayAtoll=function(){
 
         
         if (i==0){
-            first_div=div ;
+            first_div=list_circle ;
         }
     }
     //find first circle position to place draggable
@@ -59,9 +59,14 @@ window.displayAtoll=function(){
     console.log("Top: " + x.top + " Left: " + x.left);
     //console.log("list_item: ",circle.top, circle.left);
     var draggable=document.getElementById('draggable-element');
-    draggable.style.top=x.top; //circle.top
-    draggable.style.left=x.left; //circle.left
-    console.log(draggable);
+    var top=x.top-5;
+    var left=x.left-5;
+    draggable.style.cssText=`
+        top:${top}px; /*-5*/
+        left:${left}px; /*-5*/
+    `;
+    //draggable.style.top=x.top; //circle.top
+    //draggable.style.right=2000; //circle.left x.left
 
     // check if its the initial load
     if (!initialload){
