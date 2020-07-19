@@ -29,7 +29,8 @@
 	<script type="module" src="scripts/Atoll.js" rel="script"></script> 
 	<script type="module" src="scripts/islandScene.js" rel="script"></script> 
 	<script src="scripts/canvas.js" rel="script"></script>
-	<!--<script src="scripts/changeYear.js" rel="script"></script> -->
+	<script src="scripts/changeYear.js" rel="script"></script> 
+	
 	<!--when above is uncommented, island switch does not work? -->
 	
 	<!--Main script to start loadind data- PRIORITY-->
@@ -37,7 +38,7 @@
 		$( document ).ready(function() {
 	        read();
 			start(); //start canvas
-
+			dragElement(document.getElementById("draggable-element"));
 		});
 	</script>
 </head>
@@ -81,9 +82,6 @@
 					</div>
 					<!--SCROLL BAR-->
 					<div id="draggable-element"></div>
-					<script>
-						dragElement(document.getElementById("draggable-element"));
-					</script>
 					<ul id="scrollbar">
 					</ul>
 					<!-------------->

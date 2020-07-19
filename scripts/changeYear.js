@@ -1,13 +1,16 @@
 //Note: 
 //  default year is the first in the array
 
+
 //--------scroll, change year-------
-function dragElement(elmnt){
+window.dragElement=function(elmnt){
+
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    initialload=false;
+
     document.getElementById(elmnt.id).onmousedown = dragMouseDown;
     //yearIndex= something
-    displayAtoll(); //to change yearIndex
+
+    //displayAtoll(); //to change yearIndex
 
 
     //----------draggable element funcs----------
@@ -40,4 +43,5 @@ function dragElement(elmnt){
         document.onmouseup = null;
         document.onmousemove = null;
     }
+
 }
