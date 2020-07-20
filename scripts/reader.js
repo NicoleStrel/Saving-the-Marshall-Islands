@@ -19,6 +19,7 @@ window.read =function (){
             console.log("atolls: ", atolls);
             //after read, define vars:
             displayAtoll();
+           
         });
 
         $(document).dequeue('atoll');

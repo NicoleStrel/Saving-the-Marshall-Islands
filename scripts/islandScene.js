@@ -126,7 +126,6 @@ window.render= function() {
 window.renderInitial=function(){
   //.........animations
   var tl =new TimelineMax().delay(1);
-  console.log("scaleby: ", scaleby);
   tl.to(mesh2.scale, 1, {y:scaleby});
   scene.rotation.set(Math.PI*(1/180),0,0);    //rotate to see the animation
   resizeCanvasToDisplaySize();
