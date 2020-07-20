@@ -1,29 +1,21 @@
 //Note: 
 //  default year is the first in the array
 
-
-
-
 //--------scroll, change year-------
 window.dragElement=function(elmnt){
-    var spacing= calculateSpacingHorizontal();
-    var milestones=calculateMilestones(spacing);
-    console.log("milestones: ", milestones);
-    var newX = 0, newY = 0, oldX = 0, oldY = 0;
+    var milestonesY=[];
+    var milestonesX=[]
 
+    calculateMilestones();
     document.getElementById(elmnt.id).onmousedown = dragMouseDown;
-    //yearIndex= something
-
-    //displayAtoll(); //to change yearIndex
-
 
     //----------draggable element funcs----------
     function dragMouseDown(e) {
         e = e || window.event;
         e.preventDefault();
         // get the mouse cursor position at startup:
-        //oldX = e.clientX;
-        //oldY = e.clientY;
+        oldY = e.clientY;
+       
         document.onmouseup = closeDragElement;
         // call a function whenever the cursor moves:
         document.onmousemove = elementDrag;
@@ -32,39 +24,39 @@ window.dragElement=function(elmnt){
     function elementDrag(e) {
         e = e || window.event;
         e.preventDefault();
-        // calculate the new cursor position:
-        //newX = oldX - e.clientX; //old-new
-        //newY= oldY - e.clientY;
-        //oldX = e.clientX;
-        //oldY = e.clientY;
-        //console.log(e.clientX);
-        // set the element's new position:
-        //elmnt.style.top = (elmnt.offsetTop - newY) + "px";
-        //console.log(elmnt.offsetLeft - newX)
-        //elmnt.style.left = (elmnt.offsetLeft - newX) + "px"; 
-        /*
-        if (milestones.includes(elmnt.offsetLeft - newX)){
-            console.log("hi");
-            elmnt.style.left = (elmnt.offsetLeft - newX) + "px"; //elmnt.offsetLeft - newX
-        } 
-        */
         
-       
-       for (m in milestones){
-           if ((e.clientX)>=(milestones[m]-3) && (e.clientX)<=(milestones[m]+3)){
-               elmnt.style.left = (milestones[m]) + "px";
+       var changed=false;
+        
+        //check if cursor is in the right position to switch the 3d image
+       for (m in milestonesX){
+        let varPos=elmnt.offsetTop -oldY + e.clientY;
+
+           if ((e.clientX)>=(milestonesX[m]-5) && (e.clientX)<=(milestonesX[m]+5) && (varPos)>=(milestonesY[m]-20) && (varPos)<=(milestonesY[m]+20)){
+               //console.log("current Y:  ", varPos, "changed y: ", milestonesY[m])
+               oldLeft=elmnt.style.left;
+               oldTop=elmnt.style.top;
+               elmnt.style.left = (milestonesX[m]) + "px";
+               elmnt.style.top = (milestonesY[m]) + "px";
                yearIndex=m;
-               //displayAtoll(false);
-               scaleby=atolls[atollIndex].water_block_ratios[yearIndex];//for 3d
-               //console.log("scaleby: ", scaleby);
-               document.getElementById("year").innerHTML = atolls[atollIndex].years[yearIndex];
-               renderInitial();
+               if (oldLeft!=elmnt.style.left || oldTop!=elmnt.style.top){
+                    changed=true;
+               }
                break;
            }
        }
-       
-       
-        
+       if(changed){
+            scaleby=atolls[atollIndex].water_block_ratios[yearIndex];//for 3d
+            //console.log("scaleby: ", scaleby);
+            document.getElementById("year").innerHTML = atolls[atollIndex].years[yearIndex];
+            var sea_level_to_msl=atolls[atollIndex].sea_level_to_msl_vals[yearIndex];
+            if (sea_level_to_msl>0){
+                document.getElementById("sea-level").innerHTML=(sea_level_to_msl*1000).toFixed(2) + "mm above Mean Sea Level";
+            }
+            else{
+                document.getElementById("sea-level").innerHTML=(sea_level_to_msl*1000*(-1)).toFixed(2) + " mm below Mean Sea Level";
+            }
+            renderInitial();
+       }
         
     }
 
@@ -73,35 +65,17 @@ window.dragElement=function(elmnt){
         document.onmouseup = null;
         document.onmousemove = null;
     }
-
-}
-
-function calculateSpacingHorizontal(){
-    var first_item=document.getElementById('first-year');
-    var second_item=document.getElementById('second-year');
-    var first_pos = $(first_item).position();
-    var second_pos = $(second_item).position();
-    console.log("spacing, ", second_pos.left-first_pos.left);
-    return second_pos.left-first_pos.left;
-}
-function calculateSpacingHorizontal(){
-    var first_item=document.getElementById('first-year');
-    var second_item=document.getElementById('second-year');
-    var first_pos = $(first_item).position();
-    var second_pos = $(second_item).position();
-    console.log("spacing, ", second_pos.left-first_pos.left);
-    return second_pos.left-first_pos.left;
-}
-
-function calculateMilestones(spacing){
-    var milestones=[];
-    var first_pos = $(document.getElementById('first-year')).position();
+    function calculateMilestones(){
+        for (let i=0; i<circles.length; i++){
+            let circle=circles[i];
+            milestonesY.push($(circle).position().top-5);
+            milestonesX.push($(circle).position().left-5);
     
-    var start=first_pos.left-5;
-    console.log("start, ",start, "atoll: ", atolls[atollIndex], "years: ", atolls[atollIndex].years);
-    for (let i=0; i<atolls[atollIndex].years.length; i++){
-        milestones.push(start);
-        start=start+spacing;
+        }
     }
-    return milestones;
+
 }
+
+
+
+

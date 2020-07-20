@@ -21,14 +21,15 @@ window.displayAtoll=function(){
     var scrollbar=document.getElementById('scrollbar');
     var child = scrollbar.lastElementChild;  
     var first_circle;
+    window.circles=[];
     
-    //remove old
+    //------------remove old-----------
     while (child) { 
         scrollbar.removeChild(child); 
         child = scrollbar.lastElementChild; 
     }
 
-    //add new
+    //-------------add new-------------
     for (var i=0; i<atoll.years.length; i++){
         var list_item = document.createElement('li');
         list_item.setAttribute('class', 'scrollbar-list-item');
@@ -40,13 +41,12 @@ window.displayAtoll=function(){
         list_text.innerHTML=atoll.years[i];
         var list_circle=document.createElement('span');
         list_circle.setAttribute('class', 'scrollbar-dot');
+        
+        //for list spacing calculations
         if (i==0){
-            list_circle.setAttribute('id', 'first-year');
             first_circle=list_circle ;
         }
-        if (i==1){
-            list_circle.setAttribute('id', 'second-year');
-        }
+        circles.push(list_circle);
         
         div.appendChild(list_circle);
         div.appendChild(list_text);
@@ -54,22 +54,22 @@ window.displayAtoll=function(){
 
         
         scrollbar.appendChild(list_item);
-
-        
         
     }
-    //find first circle position to place draggable
-    
+
+    //------------find first circle position to place draggable-----------
     var x = $(first_circle).position();
     var draggable=document.getElementById('draggable-element');
     var top=x.top-5;
+    console.log("top: ", top);
     var left=x.left-5;
     draggable.style.cssText=`
         top:${top}px; /*-5*/
         left:${left}px; /*-5*/
     `;
 
-    //start draggable element again
+
+    //------------------start draggable element -------------------------
     dragElement(document.getElementById("draggable-element"));
     
 
