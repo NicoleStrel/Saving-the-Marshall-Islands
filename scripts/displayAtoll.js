@@ -1,7 +1,7 @@
 window.displayAtoll=function(){
     var atoll=atolls[atollIndex];
     scaleby=atoll.water_block_ratios[yearIndex];//for 3d
-    console.log ("new scaleby: ", scaleby);
+    //console.log ("scaleby: ", scaleby);
     //-------------------change all info---------------------
     document.getElementById("name").innerHTML = atoll.name;
     document.getElementById("year").innerHTML = atoll.years[yearIndex];
@@ -20,7 +20,7 @@ window.displayAtoll=function(){
     //------------------fill scroll bar----------------------
     var scrollbar=document.getElementById('scrollbar');
     var child = scrollbar.lastElementChild;  
-    var first_div;
+    var first_circle;
     
     //remove old
     while (child) { 
@@ -40,6 +40,13 @@ window.displayAtoll=function(){
         list_text.innerHTML=atoll.years[i];
         var list_circle=document.createElement('span');
         list_circle.setAttribute('class', 'scrollbar-dot');
+        if (i==0){
+            list_circle.setAttribute('id', 'first-year');
+            first_circle=list_circle ;
+        }
+        if (i==1){
+            list_circle.setAttribute('id', 'second-year');
+        }
         
         div.appendChild(list_circle);
         div.appendChild(list_text);
@@ -49,15 +56,11 @@ window.displayAtoll=function(){
         scrollbar.appendChild(list_item);
 
         
-        if (i==0){
-            first_div=list_circle ;
-        }
+        
     }
     //find first circle position to place draggable
-    //var circle = first_circle.getBoundingClientRect();
-    var x = $(first_div).position();
-    console.log("Top: " + x.top + " Left: " + x.left);
-    //console.log("list_item: ",circle.top, circle.left);
+    
+    var x = $(first_circle).position();
     var draggable=document.getElementById('draggable-element');
     var top=x.top-5;
     var left=x.left-5;
@@ -65,14 +68,17 @@ window.displayAtoll=function(){
         top:${top}px; /*-5*/
         left:${left}px; /*-5*/
     `;
-    //draggable.style.top=x.top; //circle.top
-    //draggable.style.right=2000; //circle.left x.left
+
+    //start draggable element again
+    dragElement(document.getElementById("draggable-element"));
+    
 
     // check if its the initial load
     if (!initialload){
         atollName=atolls[atollIndex].name;
         console.log ("Atoll in View: ", atollName);
         changed=true;
+  
         render();  //draw scene
     }
     else{

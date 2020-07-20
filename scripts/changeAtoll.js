@@ -11,7 +11,7 @@ function nextAtoll(){
     else{
         atollIndex =atollIndex+1;
     }
-    displayAtoll(atollIndex, yearIndex);
+    displayAtoll();
 
 }
 
@@ -25,7 +25,7 @@ function prevAtoll(){
     else{
         atollIndex =atollIndex -1;
     }
-    displayAtoll(atollIndex, yearIndex);
+    displayAtoll();
 
 }
 
