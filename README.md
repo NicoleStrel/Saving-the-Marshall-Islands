@@ -20,12 +20,12 @@ To spread awareness, we created a website that shows the rise of the sea levels 
 
 The technologies used for this project are stated below:
 
--  AWS ____: Deploying the site
+-  AWS Elastic Beanstalk: Deploying the site
 - Tensorflow.js: Apply machine learning algorithms to predict future sea-levels.
 - Three.js: Allow for the 3D models to display on the web page + add animations.
 - Blender: To create the 3D model of each island (used BlenderGIS for map rendering).
 - JQuery: To read the data and execute requests.
-- Node.js: To host and run the site 
+- Node.js: To host and run the site with url postfixes
 - HTML/CSS/Javascript: For content, styling and functionality.
 
 ## Challenges we ran into
@@ -33,7 +33,7 @@ The technologies used for this project are stated below:
 - Creating the Blender models from scratch, without having previous knowledge on it. This was especially difficult due to the complex shape of each island. 
 - Integrating three.js with the rest of the application so that it works in unison. 
 - Using the results obtained from TensorFlow and applying them to our 3D model.
-- Deploying the site on AWS ___ . Since we had a unique tech stack, it was difficult to get all the requests to succeed. 
+- Since we had a unique tech stack, it was difficult to find the right AWS web hosting platform to use. 
 
 ## Accomplishments that we're proud of
 
@@ -41,7 +41,8 @@ Our biggest accomplishment in this project was integrating all these different t
 
 ## What we learned
 
-- Some skills we learned included: 
+Some skills we learned included: 
+
 - Creating Blender models
 - Deploying on AWS for the first time 
 - Using Github “project” tab to organize our progress and issues. 
@@ -53,6 +54,6 @@ In the future, we hope to add notifications such as when the atoll becomes uninh
 ## Data
 
 Permanent Service for Mean Sea Level (PSMSL), 2020, "Tide Gauge Data", <br>
-Retrieved 13 Jun 2020 from http://www.psmsl.org/data/obtaining/.<br>
-<br>
+Retrieved 13 Jun 2020 from http://www.psmsl.org/data/obtaining/. <br>
+
 Simon J. Holgate, Andrew Matthews, Philip L. Woodworth, Lesley J. Rickards, Mark E. Tamisiea, Elizabeth Bradshaw, Peter R. Foden, Kathleen M. Gordon, Svetlana Jevrejeva, and Jeff Pugh (2013) New Data Systems and Products at the Permanent Service for Mean Sea Level. Journal of Coastal Research: Volume 29, Issue 3: pp. 493 – 504. doi:10.2112/JCOASTRES-D-12-00175.1.
