@@ -1,0 +1,10 @@
+task awsPackage(type: Zip){
+    archiveFileName = "${project.name}.zip"
+    destinationDirectory = file('build/dist')
+
+    from projectDir
+    include 'public/**/*'
+    include 'tests/**/*'
+    include '*.js'
+    include 'package.json'
+}
