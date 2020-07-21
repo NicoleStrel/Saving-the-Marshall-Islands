@@ -8,7 +8,8 @@
         "unit.js": "^2.1.1"
     },
     "scripts": {
-        "test": "./node_modules/mocha/bin/mocha --recursive tests"
+        "test": "./node_modules/mocha/bin/mocha --recursive tests",
+        "run": "http-server ./public"
     },
     "dependencies": {
         "http-server": "^0.12.3",
