@@ -16,4 +16,6 @@ frontend:
       - '**/*'
   cache:
     paths:
-      - node_modules/**/*
+      - node_modules/ #node_modules/**/*
+      - data-all/
+      - blender-files/
