@@ -7,7 +7,7 @@ frontend:
     # IMPORTANT - Please verify your build commands
     build:
       commands:
-        - npm run server.js
+        - npm run-script server
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: /
