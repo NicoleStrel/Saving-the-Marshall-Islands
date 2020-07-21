@@ -9,7 +9,6 @@ frontend:
       commands:
         - pwd
         - ls -la .
-        - node server.js &
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: .
