@@ -1,3 +1,7 @@
+# Sinking Atolls
+
+Raising awarness for the sinking Marshall Islands.
+
 ## Inspiration
 
 Most problems in the world today stem from global warming. Rising sea levels are of concern in atolls around the world, especially the Marshall Islands since they have undergone extensive nuclear testing (105 tests!) in the 1940s causing destruction among the islands. These atolls are one of the first to fall underwater in the near future. 
