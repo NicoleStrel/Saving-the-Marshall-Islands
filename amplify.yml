@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
+        - npm run server.js
     # IMPORTANT - Please verify your build commands
     build:
       commands: []
