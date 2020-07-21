@@ -4,7 +4,10 @@
   "description": "The marshall islands in the pacific ocean have undergone extensive nuclear testing (105 tests!)  in the 1940s as well as rising sea levels due to Global Warming (nuclear blasts contributed to this). They are the first to fall underwater in the near future. Unfortunately irreversible, we can spread awareness to this issue and pledge donations to organizations such as https://www.atollconservation.org/ (conserves the islands) and many more. Also, by showing the impact that global warming has on these islands, we can encourage people to enforce preventative measures.",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "jquery": "^3.5.1",
+    "path": "^0.12.7",
     "three": "^0.117.1"
   },
   "devDependencies": {},
