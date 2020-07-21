@@ -11,6 +11,8 @@
         "test": "mocha --recursive tests"
     },
     "dependencies": {
-        "http-server": "^0.12.3"
+        "http-server": "^0.12.3",
+        "jquery": "^3.5.1",
+        "three": "^0.118.3"
     }
 }
