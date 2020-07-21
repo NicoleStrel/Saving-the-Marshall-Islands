@@ -1,6 +1,6 @@
-import { GLTFLoader } from '/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
-import * as THREE from '/node_modules/three/src/Three.js';
+import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from '../node_modules/three/examples/jsm/controls/OrbitControls.js';
+import * as THREE from '../node_modules/three/src/Three.js';
 
 //to do
 //-figure out how to adjust water size to gltf
