@@ -94,7 +94,7 @@
 	body{
 		background-color: #fff;
 		color: #666;
-		font-family: 'Roboto Mono', monospace;
+		font-family: 'Raleway', sans-serif;
 		font-size: 11pt;
 		font-weight: 400;
 		line-height: 2em;
@@ -334,6 +334,12 @@
 		header.major h2 {
 			font-size: 3em;
 		}
+
+		header.major2 h2 {
+			font-size: 3em;
+			color: white;
+		}
+
 
 		header.major h2, header.major h3, header.major h4, header.major h5, header.major h6 {
 			display: inline-block;
@@ -668,6 +674,13 @@
 			overflow-x: hidden;
 		}
 		
+		body{
+			background-image: url("../img/overlay.png"), url("../img/banner2.jpg");
+			background-position: center top;
+			background-size: 100% 290px;
+			background-repeat: no-repeat;
+		}
+
 		canvas { 
 			width: 100%; 
 			height: 100%; 
@@ -681,14 +694,29 @@
 			width: 700px;
 		   
 		}
+
 		.float-right{
 			float:right;
+			background-image: url("../img/arrow2.png");
+			background-position: center center;
+			width: 300px;
+			height: 100px;
+			background-size: 100px 100px;
+			background-repeat: no-repeat;
 		
 		}
 		.float-left{
 			float: left;
+			background-image: url("../img/arrow1.png");
+			background-position: center center;
+			width: 300px;
+			height: 100px;
+			background-size: 100px 100px;
+			background-repeat: no-repeat;
 		
 		}
+
+
 		/*    Scroll bar     */
 		.scrollbar-dot {
 			height: 5px;
@@ -699,7 +727,7 @@
 		  }
 		#scrollbar{
 			list-style-type: none;
-			margin-top: 4em;
+			margin-top: 8em;
 			padding:10px;
 			padding: 0;
 			overflow: hidden;
@@ -725,9 +753,6 @@
 			background-color: black;
 			cursor: move;
 		}
-
-
-
 
 
 
