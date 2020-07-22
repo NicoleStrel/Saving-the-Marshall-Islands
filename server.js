@@ -44,6 +44,9 @@ app.get("/atolls", function (req, res) {
 app.get("/donate", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/donate.html"));
 });
+app.get("/future", function (req, res) {
+    res.sendFile(path.join(__dirname, "/public/future.html"));
+});
 
 app.get("/**/*.*", function (req, res) {
     console.log("AAA: " + req.path);

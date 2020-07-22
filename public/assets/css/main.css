@@ -761,6 +761,25 @@
 			height: auto;
 		}
 
+/*  Future */
+#canvas-graph{
+	display: block; 
+	width: 2136px; 
+	height: 1068px;
+}
+.future-blurb{
+	display:flex;
+	flex-direction: row;
+}
+.future-blurb img{
+	height: 300px;
+	max-width:100%;
+}
+.future-blurb span{
+	vertical-align: middle;
+	padding: 75px 0px;
+}
+
 
 
 

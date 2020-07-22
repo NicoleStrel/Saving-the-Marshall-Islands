@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sinking Atolls</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Primary Meta Tags -->
+	<meta name="title" content="Sinking Atolls-Future">
+	<meta name="description" content="Rasing awareness for the sinking Marshall Islands.">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Sinking Atolls-Future">
+	<meta property="og:description" content="Rasing awareness for the sinking Marshall Islands.">
+
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/png" />
+   
+    <!--Load jquery-->
+    <script type="text/javascript" src="assets/node_modules/jquery/dist/jquery.min.js"></script>
+    
+    <!-- Chart.js -->
+    <script type="text/javascript" src="assets/node_modules/chart.js/dist/Chart.bundle.js"></script>
+    
+</head>
+<body>
+    <!-- Header -->
+	<header id="header" class="alt">
+		<h1><strong><a href="/">
+					<image src="assets/img/logo.png" width="100" height="100" /></a></strong></h1>
+		<nav id="nav">
+			<ul>
+				<li><a href="/">About</a></li>
+                <li><a href="/atolls">Atolls</a></li>
+                <li><a href="/future">Future Outcomes</a></li>
+                <li><a href="/donate">Donate</a></li>
+                
+			</ul>
+		</nav>
+    </header>
+    
+    <!-- Main -->
+    <section id="main" class="wrapper">
+        <div class="container">
+
+            <header class="major2 special">
+                <h2>Future Outcomes</h2>
+                <p>Predictions of the rise in sea level around the Marshall Islands.</p>
+            </header>
+        
+            
+            <div >
+                <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div>
+                <div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+		        <canvas id="canvas-graph" class="chartjs-render-monitor"></canvas>
+            </div>
+            <br>
+
+            <div class="future-blurb">
+            <span>Sea level is expected to continue to rise in the Marshall islands. These sea-level rises 
+                compounded with the natural year-to year changes will impact the amount of storm surges and flooding 
+                in the area. Even with these predictions it is still uncertain how the large melting ice sheets will 
+                contribute to the sea level rise and if these predictions are rather low for our future. The fast pace global 
+                temperature rise could skyrocket these numbers and we might loose some of these atolls in the Marshall islands 
+                sooner than we thought. </span>
+            <img src="assets/img/drown.jpg"/>
+            </div>
+           
+            <script>
+                var years=[];
+                var sealevel=[]
+                //-------------Read the data from the .csv ------------
+                $.when($.get('assets/data-all/rise in sea level marshall islands  - Sheet1.csv')).then(function(data) {
+					var lines=data.split("\n");
+					$.each(lines, function(i){
+						if (i!=0){
+							var content=lines[i].split(",");
+                            years.push(content[0]);
+                            sealevel.push(content[1]);
+						};
+
+                    });
+                    fillGraph();
+                });
+                
+                //---------fill graph and add functionality -----------------
+                function fillGraph(){
+                    console.log("years: ", years);
+                    console.log("sea level: ", sealevel);
+
+                    var config = {
+                        type: 'line',
+                        data: {
+                            labels: years,
+                            datasets: [{
+                                label: 'Rise in sea Level (mm)',
+                                backgroundColor: 'rgb(198, 224, 249)',
+                                borderColor: 'rgb(198, 224, 249)',
+                                data: sealevel,
+                                fill: false,
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'The Rise in Sea Level from 1990 to 2050, Marshall Islands',
+                                fontSize: 22,
+                                padding: 30,
+                                fontFamily: "'Raleway', sans-serif",
+                            },
+                            tooltips: {
+                                mode: 'index',
+                                intersect: false,
+                                titleFontFamily: "'Raleway', sans-serif",
+                                titleAlign: 'center',
+                                bodyFontFamily: "'Raleway', sans-serif",
+                                footerFontFamily: "'Raleway', sans-serif",
+                            },
+                            hover: {
+                                mode: 'nearest',
+                                intersect: true
+                            },
+                            legend: {
+                                display: false,
+                            },
+                            defaultFontFamily: "'Raleway', sans-serif",
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Year',
+                                        fontFamily: "'Raleway', sans-serif",
+                                        fontSize: 15,
+                                        padding: 15,
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Rise in Sea Level (mm)',
+                                        fontFamily: "'Raleway', sans-serif",
+                                        fontSize: 15,
+                                        padding: 15,
+                                    }
+                                }]
+                            }
+                        }
+                    };
+
+                    
+                    var ctx = document.getElementById('canvas-graph').getContext('2d');
+                    window.myLine = new Chart(ctx, config);
+                    
+
+
+                }
+            </script>
+
+        </div>
+    </section>
+</body>
+</html>
