@@ -3,8 +3,7 @@
     "description": "Sample NodeJs web application",
     "version": "0.0.1",
     "private": true,
-    "devDependencies": {
-    },
+    "devDependencies": {},
     "scripts": {
         "test": "./node_modules/mocha/bin/mocha --recursive tests",
         "run": "http-server ./public"
