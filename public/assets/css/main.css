@@ -662,7 +662,10 @@
 			}
 
 
-
+/* Special elements */
+.mission{
+	font-size: 20px;
+}
 
 
 
@@ -752,6 +755,10 @@
 			z-index: 1000;
 			background-color: black;
 			cursor: move;
+		}
+		#atoll-img{
+			width: 400px;
+			height: auto;
 		}
 
 

@@ -4,7 +4,6 @@ task awsPackage(type: Zip){
 
     from projectDir
     include 'public/**/*'
-    include 'tests/**/*'
     include '*.js'
     include 'package.json'
 }

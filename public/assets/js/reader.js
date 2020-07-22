@@ -34,7 +34,7 @@ function createReadAtollTask(atollData){
 //---------------------read each atoll----------------------
 function readAtoll(atollData, next){
     var content=atollData.split(";");
-    var atoll=new Atoll(content[0],content[1],content[2],content[3], content[4], content[5], content[6], content[7], content[8]);
+    var atoll=new Atoll(content[0],content[1],content[2],content[3], content[4], content[5], content[6], content[7], content[8], content[10]);
 
     $.when($.get(`assets/data-all/sea-level-data-psmsl/data/${atoll.id}.rlrdata`)).then(function(gauge_data){
         var gauge_lines=gauge_data.split("\n");

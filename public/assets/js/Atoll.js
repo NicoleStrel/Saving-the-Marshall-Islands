@@ -1,6 +1,6 @@
 export class Atoll {
     //note: all values are strings
-    constructor(name,id, long, lat, population,  popdate, elevation,islets,mean_sea_level_to_datum){
+    constructor(name,id, long, lat, population,  popdate, elevation,islets,mean_sea_level_to_datum, desc){
         this.name=name; 
         this.id=id;
         this.long=long; //degrees E
@@ -9,6 +9,7 @@ export class Atoll {
         this.popdate=popdate; //year
         this.elevation=elevation;
         this.islets=islets;
+        this.desc=desc;
         this.mean_sea_level_to_rlr=mean_sea_level_to_datum; //in mm 
         //undeclared
         this.sea_level_gauge_values=[];//in mm 

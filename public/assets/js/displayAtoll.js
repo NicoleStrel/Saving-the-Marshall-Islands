@@ -9,7 +9,10 @@ window.displayAtoll=function(){
     document.getElementById("loc").innerHTML = atoll.lat+"° N, "+atoll.long+ "° E";
     document.getElementById("elevation").innerHTML="Elevation: "+atoll.elevation+" m";
     document.getElementById("islets").innerHTML=atoll.islets+" islets";
-    
+    var imgsrc="assets/img/"+atoll.name+"-map.png";
+    document.getElementById("atoll-img").setAttribute('src', imgsrc);
+    document.getElementById("atoll-desc").innerHTML=atoll.desc;
+
     var sea_level_to_msl=atoll.sea_level_to_msl_vals[yearIndex];
     if (sea_level_to_msl>0){
         document.getElementById("sea-level").innerHTML=(sea_level_to_msl*1000).toFixed(2) + "mm above Mean Sea Level";
