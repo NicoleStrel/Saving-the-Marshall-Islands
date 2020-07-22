@@ -5,12 +5,14 @@
     "private": true,
     "devDependencies": {},
     "scripts": {
-        "test": "./node_modules/mocha/bin/mocha --recursive tests",
-        "run": "http-server ./public"
+        "run": "node server.js",
+        "predict": "node predict.js"
     },
     "dependencies": {
+        "@tensorflow/tfjs-node": "^2.0.1",
         "chart.js": "^2.9.3",
         "express": "^4.17.1",
+        "http": "0.0.1-security",
         "http-server": "^0.12.3",
         "jquery": "^3.5.1",
         "three": "^0.118.3"
